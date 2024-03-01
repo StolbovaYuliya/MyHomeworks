@@ -1,0 +1,117 @@
+/* body {
+    font-family: 'Cormorant', 'Times New Roman';
+    font-size: 20px;
+    width: 70%;
+    margin: 0 auto;
+    background-color: #ccefb4;
+}
+h1{
+    font-family: 'Caveat','Times New Roman';
+    text-align: center ;
+    font-weight: bold;
+    font-size: 2em;
+    color: rgb(13, 13, 116);
+}
+
+p{
+    font-family: 'Caveat','Times New Roman';
+    font-size: 1.2em;
+    word-wrap: normal;
+    color: rgb(12, 12, 137);
+} */
+
+body{
+    width: 70%;
+    margin: 0 auto;
+}
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 100%;
+    background-color: #c4c29a;
+    overflow: hidden; 
+    /* Скрываем содержимое, выходящее за границы */
+    transition: width 1s;
+   
+}
+nav:hover {
+    width: 200px;
+    /* Увеличенная ширина при наведении, чтобы поместился текст */
+}
+
+ main {
+    padding: 32px;
+            
+ }
+
+ 
+
+#nav-menu a {
+  display: flex;
+  align-items: center;
+  padding: 8px 8px 8px 23px;
+ /* Увеличенный padding слева, чтобы создать пространство для иконки */
+  color: white;
+  text-decoration: none; 
+  white-space: nowrap;
+  /* Предотвращаем перенос текста на новую строку */
+  text-indent: -9999px;
+    /* "Скрываем" текст ссылки */
+  transition: background-color 0.5s, text-indent 0.5s;
+   /* Добавляем анимацию для text-indent */
+   font-family: 'Cormorant', 'Times New Roman';
+   font-size: 16px;
+    width: 70%;
+    margin: 0 auto;
+}
+
+#nav-menu a:hover {
+    background-color: #625757;
+}
+
+nav:hover #nav-menu a {
+    text-indent: 20px;
+    /* При наведении на меню возвращаем отступ тексту, делая его видимым */
+}
+
+ul{
+    list-style-type: none;
+}
+
+
+
+#one,
+#two,
+#three,
+#four,
+#five,
+#six{
+    background-size: 15px 13px;
+    background-repeat: no-repeat;
+    background-position: 5px;
+}
+
+#one {
+    background-image: url('icons/1.png');
+}
+
+#two {
+    background-image: url('icons/2.png');
+}
+
+#three {
+    background-image: url('icons/3.png');
+}
+
+#four {
+    background-image: url('icons/4.png');
+}
+
+#five {
+    background-image: url('icons/5.png');
+}
+#six {
+    background-image: url('icons/6.png');
+}

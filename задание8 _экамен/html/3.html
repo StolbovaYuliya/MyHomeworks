@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Что такое HTML?</title>
+    <link rel="stylesheet" href="/задание8 _экамен/8.css">
+
+<style>
+
+    html {
+            font-size: 10px; 
+            /* padding-left: 40px;  */
+            /* padding-right: 20px;  */
+            color: black;
+         } 
+
+    body{
+            background-color: rgba(229, 231, 231, 0.899);
+            color: rgb(0, 0, 0);
+            font-size: 2vw;
+            font-family: Tahoma, Verdana, sans-serif;
+                      
+        }
+
+    h1{ 
+        text-align: center;
+        font-size: 2em;
+        
+    }
+
+    h2{ 
+        text-align: center;
+        font-size: 1.5em;
+
+    }
+
+    .term {
+        text-decoration-style: dotted;
+        text-decoration-line: underline;
+        text-decoration-thickness: 1.5px ;
+    }
+
+    .color-text {
+        color: red;
+
+    }
+
+    .code {
+            background-color: rgb(216, 216, 215);
+            /* border: 1px solid rgb(150, 92, 16); */
+            padding: 0.1rem;
+            color: rgb(189, 38, 15);
+            white-space: pre;
+            font-family: "FiraMono-Regular";
+            }
+    p {
+        word-wrap: normal;
+    }
+    .color-tags {
+        color: rgb(37, 27, 216);
+        text-shadow: 5px 0px 5px rgb(2, 243, 170);
+    }
+    .a {
+        background-color:rgb(209, 218, 218);
+        font-size: 0.9em;
+        
+
+    }
+
+    
+</style>
+
+
+</head>
+<body>
+    
+    <nav>
+        <h4>Мои работы:</h4>
+        <ul id="nav-menu">
+            <li><a id="one" href="/задание8 _экамен/html/2.html">Резюме</a></li>
+            <li><a id="two" href="/задание8 _экамен/8.html">Главная</a></li>
+            <li><a id="three" href="/задание8 _экамен/html/4.html">Списки</a></li>
+            <li><a id="four" href="/задание8 _экамен/html/5.html">Таблицы</a></li>
+            <li><a id="five" href="/задание8 _экамен/html/6.html">Формы</a></li>
+            <li><a id="six" href="/задание8 _экамен/html/7.html">Блоки</a></li>
+        </ul>
+    </nav>
+
+    <main>
+   <h1> HTML Tutorial</h1>
+
+   <hr>
+
+   <h2>What is HTML?</h2>
+    <p>
+       
+    <b>Hypertext Markup Language 
+    <abbr title="HyperText Markup Language">(HTML)</abbr></b>
+     is the standard markup language for creating web pages and
+      web applications.
+    </p>
+    <p>
+        Web browsers receive <span class="term">HTML</span> documents from a web server or from local storage and render the
+     documents into multimedia web pages.<span class="term"> HTML</span> describes the structure of a web page semantically
+     and originally included cues for the appearance of the document.
+    </p>
+ <p>
+    <span class="term"> HTML </span> elements are the building blocks of <span class="term">HTML</span> pages. With <span class="term">HTML</span> constructs, images and other
+    objects such as interactive forms may be embedded into the rendered page. <span class="term">HTML</span> provides a
+    means to create structured documents by denoting structural semantics for text such as
+    headings, paragraphs, lists, links, quotes and other items. HTML elements are delineated by
+    <i>tags</i>, written using angle brackets. Tags such as <span class= "color-text"> &lt img &gt </span> 
+    and <span class= "color-text"> &lt input &gt </span> 
+    directly introduce content into the page. Other tags such as <span class= "color-text"> &lt p &gt </span> 
+    surround and provide information about
+    document text and may include other tags as sub-elements. Browsers do not display the <span class="term">HTML</span>
+    tags, but use them to interpret the content of the page.
+</p>
+
+<hr>
+
+         <h2> Markup </h2>
+
+    <p>
+        <span class="term"> HTML </span> markup consists of several key components, including those called <i>tags</i> (and their
+        <i> attributes</i>), character-based <i> data types, character references</i> and <i> entity references</i>. <span class="term"> HTML </span>
+        tags most commonly come in pairs like <span class= "color-text"> &lt h1 &gt </span> and <span class= "color-text"> &lt /h1 &gt </span>, although some represent empty elements
+        and so are unpaired, for example <span class= "color-text"> &lt img &gt </span>. The first tag in such a pair is the <i> start tag </i>, and
+        the second is the <i> end tag </i> (they are also called <i> opening tags </i>  and <i> closing tags </i>).
+
+    </p>
+    <p>
+        Another important component is the <span class="term"> HTML </span> <i> document type declaration </i>, which triggers standards
+        mode rendering.
+
+    </p>
+    <p>
+        The following is an example of the classic "Hello, World!" program:
+
+    </p>  
+    
+
+<div class="code">  <code>
+ &lt!DOCTYPE html&gt
+     &lthtml&gt
+        &lthead&gt
+             &lttitle&gt This is a title &lt/title&gt
+            &lt/head&gt
+        &ltbody&gt
+            &ltp&gt Hello world! &lt/p&gt
+         &lt /body &gt
+     &lt /html &gt
+ </code>  </div>
+        
+<hr>
+<span>
+     Tags:
+
+    <a class ="a" href=""> CodingScripting</a>
+    <a class = "a" href=""> head</a>
+    <a class = "a" href=""> HTML</a>
+    <a class = "a" href=""> Introduction to HTML</a>
+    <a class="a" href=""> Landing</a>
+    <a class = "a" href=""> Links semantics</a>
+    <a class = "a" href=""> Structure Text</a>
+</span>
+
+</main>
+
+
+</body>
+</html>

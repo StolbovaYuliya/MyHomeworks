@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta description="Заказ суши, ролов. Доставка курьером">
+    <title>Суши (вёсла)</title>
+
+    <link rel="stylesheet" href="/задание8 _экамен/8.css">
+
+<style>
+
+    body {
+            font-family: Georgia, 'Times New Roman', Times, serif;
+            /* width: 90%;                      */
+            margin: 0 auto;
+            background-color:  #bfa89b ;
+            
+            
+        }
+        
+        
+        button{
+            font-size: 25px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            color: #873232;
+        }
+
+        select{
+            font-size: 15px;
+        }
+        
+    .div-button{
+        
+        padding-top: 10px;
+    }
+    .div-footer{
+        text-align: center;
+        font-size: 25px ;
+        
+        color: rgb(195, 24, 24);
+        background-color: rgb(30, 15, 24) ;
+    
+    } 
+        
+    .div-label{
+        font-size: 20px;
+        padding-top: 15px;
+        padding-bottom: 3px;
+        /
+        
+    }
+    
+    
+    .p-footer{
+        font-size: 15px;
+        padding-bottom: 15px;
+    }
+
+    label:hover{
+        box-shadow: 5px 0 10px rgb(55, 6, 39);
+        color: #530a0a;
+    }
+    button:hover{
+        color: #127321;
+        box-shadow: 5px 0 10px rgb(3, 65, 55);
+        
+
+    }
+</style>
+
+
+</head>
+<body>
+    <header>
+        
+         <div >
+            <img src="/задание8 _экамен/img/sushi6.jpg" alt="фон" width=100% >
+        </div>   
+        <p> <b> Для заказа введите:</b></p>
+
+    </header>
+    <nav>
+        <h4>Мои работы:</h4>
+        <ul id="nav-menu">
+            <li><a id="one" href="/задание8 _экамен/html/2.html">Резюме</a></li>
+            <li><a id="two" href="/задание8 _экамен/html/3.html">Текст HTML</a></li>
+            <li><a id="three" href="/задание8 _экамен/html/4.html">Списки</a></li>
+            <li><a id="four" href="/задание8 _экамен/html/5.html">Таблицы</a></li>
+            <li><a id="five" href="/задание8 _экамен/8.html">Главная</a></li>
+            <li><a id="six" href="/задание8 _экамен/html/7.html">Блоки</a></li>
+        </ul>
+    </nav>
+<main>
+        <form method="get">
+        <div class = "div-label">
+            <label for="name">Ваше Имя ></label>
+        </div>
+        <div class = "div-class">
+            
+            <input type="text" id="name" name="username"
+            placeholder="Введите Имя и Фамилию" required>
+        </div>
+    
+        <div class = "div-label">
+            <label for="adress">Куда привезти?></label>
+        </div>
+        <div>
+            <textarea name="adress" rows="5" cols="40" 
+            placeholder="Введите адрес доставки" required></textarea>
+        </div>
+
+        <fieldset>
+        <legend> Выберите палочки (вилки не даем)</legend>
+        <div class = "div-label">
+            <label for="sticks">Количество персон ></label>
+        </div>
+        <div>
+            <input type="number" id="sticks" name="sticks"
+            placeholder="сколько палочек" required>
+        </div>
+        <div class = "div-label">
+            <input type="radio" id="option1" name="sticks" value="study">
+            <label for="option1">Учебные палочки</label>
+        </div>
+        <div class = "div-label">
+            <input type="radio" id="option2" name="sticks" value="buttle">
+            <label for="option2">Боевые палочки</label>
+        </div>
+        </fieldset>
+        <div class = "div-label">
+            <label for="name-su">Выберите суши></label>
+        </div>
+        <div>
+            <select name="name-su" required>
+                
+                <option value="Sake">Сяке маки</option>
+                <option value="Kappa">Каппа Маки</option>
+                <option value="Unagi">Унаги маки</option>
+                <option value="Dragon">Дракон</option>
+                <option value="Borondo">Бюрондо</option>
+                <option value="Kokoro">Кокоро</option>  
+                <option value="Kavai">Каваи</option>    
+                <option value="Harakiri">Харакири</option>
+        
+            
+            </select>
+        </div>
+        <div class = "div-label">
+            <input type="checkbox" id="option1" name="napkins_yes" value="true">
+            <label for="option1">Положить салфетки</label>
+        </div>
+        <div class = "div-label">
+            <label for="comments">Ваши пожелания/замечания ></label>
+        </div>
+        <div>
+            <textarea name="comments" rows="5" cols="40" 
+            placeholder=" Введите коментарии к заказу"></textarea>
+        </div>
+
+        <div class = div-button>
+            <button type="submit">Отправить</button>
+        </div>
+
+    </form> 
+
+</main>
+<footer>
+ <div class = "div-footer">
+    <p> Приятного аппетита!</p>
+    <div>
+       <p class = "p-footer"> В случае чего номер для связи: 8(800) 000 00 00 </p>
+       <p class = "p-footer">
+        или на короткий номер 112
+       </p>
+      
+     </div>
+ </div>
+ 
+
+</footer>
+</body>
+</html>
