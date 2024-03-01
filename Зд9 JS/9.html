@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS массивы</title>
+</head>
+<body>
+    <script>
+    
+
+        let listBuy = prompt('Введите список покупок через пробел');
+        // console.log(listBuy);
+        let listBuyArr = listBuy.split(" ");
+        console.log(listBuyArr);
+        let amountElement = listBuyArr.length;
+        // console.log(amountElement);
+        alert(`Ваше количество покупок: ${amountElement} (${listBuy})`);
+        
+        let userNumber = parseInt(prompt(`Введите номер от 0 до ${listBuyArr.length-1}`));
+       
+        if( isNaN(userNumber)){
+           do{ 
+            
+            userNumber = parseInt(prompt('Вы не ввели число! Введите номер от 1 до '+ amountElement)); 
+            }
+     
+            while( isNaN(userNumber))
+        }
+        let userElement = listBuyArr[userNumber]
+        
+        alert('Ваша покупка: '+ userElement)
+
+        let userAddElement = prompt('Хотите заменить выбранную покупку на другую?');
+
+        if(userAddElement==='') {
+
+            do{
+            userAddElement = prompt('Вы не ввели значение!')
+            }
+            while(userAddElement==='')
+        }
+
+        listBuyArr[userNumber] = userAddElement    
+       
+        listBuy = listBuyArr.join([', ']) ;
+        alert(`Ваш новый список покупок:  ${listBuy}.`)
+
+</script>
+</body>
+</html>

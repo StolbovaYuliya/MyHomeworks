@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Домашнее задание TO-DO-list</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+
+<style>
+
+   .task{
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+   }
+
+    .display-none{
+        display: none;
+    }
+
+    .done{
+
+        background-color: #ccc;
+        text-decoration: line-through;
+    }
+
+    #task-complit{
+        margin-top: 20px;
+
+    }
+
+</style>
+
+</head>
+<body>
+    
+    
+<div class="col-lg-5 col-12">
+    <div class = "p-3 border bg-light">
+         
+        <div id = "task-list" class="display-none">
+            <h2>Активные задачи</h2>
+
+        </div>
+        <div class = "d-flex justify-content-between">
+            <input type="text" id = "task-input"    placeholder="Сформулируйте задачу" >
+            <button  id = "add-task-btn" class = "btn btn-dark" onclick = "addTaskList()" >Добавить</button>
+   
+        </div>
+         <div id = "task-complit" class="display-none text-bg-secondary p-3" >
+            <h2>Выполненные задачи</h2>
+        
+        </div>
+    </div>
+</div>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"> </script>
+
+    <script>
+ 
+        let tasklist = document.querySelector('#task-list')
+        let complitTask = document.querySelector('#task-complit')
+        
+
+        function addTaskList(){
+            
+             
+            let addTaskListVal = document.getElementById('task-input')
+            console.log(addTaskListVal)
+            let taskVal = addTaskListVal.value.trim();
+
+            if (taskVal==''){
+                alert('Вы не ввели значение!')
+                return
+            }
+            let task = document.createElement('div');
+            
+            task.classList.add('task');
+            task.textContent = taskVal;
+            
+            let btnDo = document.createElement('button');
+           
+            btnDo.classList.add('btn','btn-danger');
+            btnDo.textContent = 'Удалить'
+            addDeleteBtnListener(btnDo)
+           
+           task.append(btnDo);
+           tasklist.append(task);
+           console.log(tasklist);
+           addTaskListVal.value = '';
+
+           displayNone(tasklist);
+            
+        } 
+            function displayNone(element) {
+                
+                
+                if(element.children.length > 0) {
+                    element.classList.remove('display-none')
+                }
+                else {
+                    element.classList.add('display-none')
+                }
+
+            }
+
+            function moveComplitTask(task) {
+                task.classList.add('done');
+                complitTask.append(task)
+
+            }
+
+            function addDeleteBtnListener(btn){
+                btn.addEventListener('click', function(){
+                    moveComplitTask(btn.parentElement);
+                    displayNone(complitTask);
+                    displayNone(tasklist);
+                    btn.remove();
+
+                });
+
+            }
+
+    </script>
+</body>
+</html>

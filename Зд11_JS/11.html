@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&family=Cormorant:wght@300&family=Merriweather:wght@300&display=swap" rel="stylesheet">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+ <style>
+ 
+   body {
+    font-family: 'Cormorant', 'Times New Roman';
+    font-size: 20px;
+    width: 70%;
+    margin: 0 auto;
+   
+   
+
+    }
+    h1{
+        font-family: 'Caveat','Times New Roman';
+        text-align: center ;
+        font-weight: bold;
+        font-size: 3em;
+        margin-bottom: 30px;
+        
+    }
+
+    p{
+        font-family: 'Caveat','Times New Roman';
+        font-size: 2em;
+        word-wrap: normal;
+       text-align: center;
+       padding: 5px;
+    }
+    
+</style>
+  
+</head>
+
+
+<body>
+    
+   <div class = 'divBtn'> 
+    <button class="btn btn-dark" id="idChangeTheme">Ночь</button></div>
+    
+ 
+        <h1>А теперь песня!</h1>
+        <p>
+            Какаой чудесный день! а-А!
+        </p>
+        <p>
+            Работать мне не лень! а-А!
+        </p>
+        <p>
+            Со мной мои друзья!
+        </p>
+        <p> 
+            И песенка моя-я-я-я! &#128540
+        </p>
+
+    <script>
+
+    let ChangeTheme = document.getElementById('idChangeTheme');
+    console.log(ChangeTheme);
+    ChangeTheme.addEventListener('click', function (event) {
+            console.log(event)
+                        
+            ChangeBgStyle();
+             changeFontStyle();
+       
+       
+    })
+
+        
+
+    // // Функция которая переключает стиль фона body с bg-light на bg-dark
+    function ChangeBgStyle(event) {
+            // Получаем body
+            let body = document.body;
+            // Проверяем, есть ли у body класс bg-light
+            // Если есть, то удаляем его
+            console.log(body.classList);
+
+        if (body.classList.contains('bg-light')) {
+            body.classList.remove('bg-light');
+            body.classList.add('bg-dark');
+            ChangeTheme.textContent = "День";
+
+        } else {
+            // Если нет, то добавляем
+            body.classList.remove('bg-dark');
+            body.classList.add('bg-light');
+            ChangeTheme.textContent = "Ночь";
+        }
+    }
+
+
+    // Функция переключает цвет шрифта с text-dark на text-light
+    function changeFontStyle(event) {
+        // Получаем body
+        let body = document.body;
+        // Проверяем, есть ли у body класс bg-light
+        // Если есть, то удаляем его
+        console.log(body.classList);
+        if (body.classList.contains('text-dark')) {
+            body.classList.remove('text-dark');
+            body.classList.add('text-light');
+        } else {
+            // Если нет, то добавляем
+            body.classList.remove('text-light');
+            body.classList.add('text-dark');
+        }
+    }
+
+   
+
+    </script>
+</body>
+</html>

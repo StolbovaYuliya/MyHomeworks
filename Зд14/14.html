@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Домашнее задание: Погодное приложение "начало"</title>
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+
+    <style>
+
+        #watherForm{
+            
+            display:block;
+            padding:20px;
+            margin-left: 25%;
+            width:400px;
+            height: 380px;
+            background: linear-gradient(rgb(138, 138, 232), pink);
+            
+            }
+
+        #doQwery{
+          border: 1px solid rgb(95, 209, 131) ;
+        }
+
+        #delCity{
+            border: 1px solid rgb(95, 209, 131) ;
+
+        }
+    </style>
+</head>
+<body>
+    
+<form id="watherForm">
+ 
+    <div class="mb-3">
+        
+        <label for="inputCity" class="form-label">Введите город</label>
+        <div class = "input-group">
+            
+             <input class="form-control" type="text" id = "inputCity">
+             <button type="button" class="btn" id = "doQwery">&#10004</button>
+             <button type="button" class="btn" id = "delCity">&#10060</button>
+        </div>
+        
+    
+    </div>
+    <div>
+        <p> <span id="result"></span></p>
+    </div>
+      
+</form>
+
+
+<script>
+
+    // Добываем элементы формы
+    
+    // Кнопка выполнения запроса
+    let doInputQwery = document.querySelector('#doQwery');
+
+    // Кнопка удаления города из поля ввода
+    let delInputCity = document.querySelector('#delCity');
+
+    //  погодная форма 
+    let watherFormValue =  document.querySelector('#watherForm');
+    
+
+    // ключ API
+    const API_KEY = "a7effc853722b365b7c42914728a7c90";
+        
+     // Язык и единицы измерения
+    const lang = "ru";
+    const units = "metric";
+    
+    // Загрузка формы
+     window.addEventListener('load', function(){
+    
+        //    Записываем в поле ввода города сохраненное  значение
+            document.getElementById("inputCity").value = localStorage.getItem('saveCityValue');
+        // Отрисовываем погоду
+            getWeatherByForm()
+         
+      });
+
+    //   Закрытие формы
+      window.addEventListener('unload',function(){
+        // Сохраняем последнее введеное название города
+        localStorage.setItem('saveCityValue', document.getElementById("inputCity").value)
+       
+      });
+
+    async function getWeather(url) {
+            
+            const response = await fetch(url);
+            const data = await response.json();
+
+            return data;
+        }
+
+    //    Поле ввода названия города
+        const inputCityValue = document.querySelector('#inputCity');
+
+        //  Функция создания url
+
+        function createUrl(city) {
+            return `https://api.openweathermap.org/data/2.5/weather?q=${city}&lang=${lang}&units=${units}&appid=${API_KEY}`;
+        }
+
+        //  Функция отображения результата в элементе с id result
+        function renderResult(result) {
+            
+            const resultElement = document.getElementById("result");
+            
+            resultElement.innerHTML = result;
+        }
+
+        // Функция  формирования строки HTML кода с данными о погоде
+        
+        function createWeatherString(weather) {
+            let codCity = weather.cod
+           
+            // Проверяем не вернул ли ошибку
+            if(
+                codCity == "404") {
+                return `<p>Город не найден</p>`
+            } else {
+                
+          
+            return `
+            <p>Погода в городе ${weather.name}</p>         
+            <p>Текущая температура: ${weather.main.temp}°C</p>
+            <p>Ощущается как: ${weather.main.feels_like}°C</p>
+            <p>Ветер: ${weather.wind.speed} м/с</p>
+            <p>Вероятность дождя: ${weather.clouds.all}%</p>
+            `;
+        }
+     }
+
+        
+        // отрисовываем результат.
+        async function getWeatherByForm() {
+        //    Проверяем, что поле ввода города не пустое
+            if(inputCityValue.value !=="") {
+                // Получаем значение формы
+                const city = inputCityValue.value;
+                // Подготавливаем url
+                const url = createUrl(city);
+                // Делаем запрос на сервер
+            
+                weatherObj = await getWeather(url);
+            
+                // Формируем строку HTML кода с данными о погоде
+                const weatherString = createWeatherString(weatherObj);
+                // Отрисовываем результат
+                renderResult(weatherString);
+                
+            } else {
+                const resultElement = document.getElementById("result");
+            
+            
+                resultElement.innerHTML  = "";
+            } 
+        }
+
+        
+        //  Листнер на кнопку выполнения запроса
+        doInputQwery.addEventListener("click", getWeatherByForm);
+
+        //  Листнер на кнопку очистки поля ввода
+        delInputCity.addEventListener("click", function(){
+           
+            document.getElementById("inputCity").value = "";
+            
+            document.getElementById("result").innerHTML  = "";
+        });
+
+      
+</script>
+
+</body>
+</html>
