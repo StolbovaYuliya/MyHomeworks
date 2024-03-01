@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+<!--bootstrap-->
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,11 +40,11 @@
 
 </head>
 <body>
-    
-    
+
+
 <div class="col-lg-5 col-12">
     <div class = "p-3 border bg-light">
-         
+
         <div id = "task-list" class="display-none">
             <h2>Активные задачи</h2>
 
@@ -51,25 +52,25 @@
         <div class = "d-flex justify-content-between">
             <input type="text" id = "task-input"    placeholder="Сформулируйте задачу" >
             <button  id = "add-task-btn" class = "btn btn-dark" onclick = "addTaskList()" >Добавить</button>
-   
+
         </div>
          <div id = "task-complit" class="display-none text-bg-secondary p-3" >
             <h2>Выполненные задачи</h2>
-        
+
         </div>
     </div>
 </div>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.bundle.min.js"> </script>
 
     <script>
- 
+
         let tasklist = document.querySelector('#task-list')
         let complitTask = document.querySelector('#task-complit')
-        
+
 
         function addTaskList(){
-            
-             
+
+
             let addTaskListVal = document.getElementById('task-input')
             console.log(addTaskListVal)
             let taskVal = addTaskListVal.value.trim();
@@ -79,27 +80,27 @@
                 return
             }
             let task = document.createElement('div');
-            
+
             task.classList.add('task');
             task.textContent = taskVal;
-            
+
             let btnDo = document.createElement('button');
-           
+
             btnDo.classList.add('btn','btn-danger');
             btnDo.textContent = 'Удалить'
             addDeleteBtnListener(btnDo)
-           
+
            task.append(btnDo);
            tasklist.append(task);
            console.log(tasklist);
            addTaskListVal.value = '';
 
            displayNone(tasklist);
-            
-        } 
+
+        }
             function displayNone(element) {
-                
-                
+
+
                 if(element.children.length > 0) {
                     element.classList.remove('display-none')
                 }
